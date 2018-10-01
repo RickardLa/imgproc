@@ -9,7 +9,6 @@ set(groot,'defaultFigureVisible','on')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 img_O = imread('RRY025/cameraman.tif');
 
-
 %% DPCM predict the prediction of the reciever
 clc
 
@@ -21,7 +20,7 @@ errq = zeros(st,1);                     % Quantized error
 rec = img(1);                           % Reciever simulation
 
 for n=2:st
-  err = img(n) - rec;                 % Error between img and reciever (n-1)
+  err = img(n) - rec;                   % Error between img and reciever (n-1)
   errq(n) = quantize(err);
   rec = rec + errq(n);
 end
@@ -35,7 +34,7 @@ diff = reshape(errq, [row, col])';
 
 difft = diff';                          % Cumsum traverses column-wise
 cs = cumsum(difft(:));
-img_R = reshape(cs,     [col, row])';
+img_R = reshape(cs,[row, col])';
 
 
 subplot(1,3,1)

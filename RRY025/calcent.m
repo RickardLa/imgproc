@@ -6,7 +6,7 @@ function calcent(input)
 % (allowing negative values), and calculate
 % image histogram entropy
 %
-figure(1)
+% figure(1)
 clf;
 subplot(2,1,1)
 imshow(input, [])
