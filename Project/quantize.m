@@ -5,15 +5,16 @@ function q = quantize(d)
   % f(0<=x<high) = e2
   % f(high<x) = e1
   
-  high = 30;
+  high = 0;
   low = -high;
-  e1 = 50;
-  e2 = 2;
+  e1 = 10;
+  e2 = e1;
   
   q = -e1*ones(size(d));
   q(d>low) = -e2;
   q(d>=0) = e2;
   q(d>=high) = e1;
+  
 
 end
 
