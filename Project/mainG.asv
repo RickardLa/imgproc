@@ -7,41 +7,12 @@ set(groot,'defaultFigureVisible','on')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                              TRANSMITTER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% img_O = double(imread('RRY025/cameraman.tif'));
+% img_O = double(imread('RRY025/gisela_boat.TIF'));
+img_O = mean(double(imread('RRY025/trees.TIF')),3);
 
-img_1 = mean(double(imread('RRY025/jas.jpg')),3);
-img_2 = double(imread('RRY025/cameraman.tif'));
-img_3 = double(imread('RRY025/gisela_boat.TIF'));
+subplot(
 
-
-
-
-subplot(2,3,1) 
-imshow(img_1, [])
-
-subplot(2,3,2)
-imshow(img_2, [])
-
-subplot(2,3,3) 
-imshow(img_3, [])
-
-subplot(2,3,4)
-histogram(difim(img_1),100)
-axis([-75 75 0 4e5])
-
-subplot(2,3,5)
-histogram(difim(img_2),100)
-axis([-75 75 0 3.5e4])
-
-subplot(2,3,6)
-histogram(difim(img_3),100)
-axis([-75 75 0 6e4])
-
-
-
-
-
-
-img_O = img_1; 
 diffimg = difim(img_O); 
 
 
@@ -50,7 +21,7 @@ clc
 
 initialCondition = 'rowpixel';               % firstpixel or rowpixel
 mode = 'DPCM';                            % intuitive or DPCM
-level = 2;                                % Bits in quantizer
+level = 3;                                % Bits in quantizer
 
 
 [row, col] = size(img_O);
